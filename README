@@ -5,45 +5,58 @@ New College of Florida
 ####################
 ### DwarfDefense ###
 ####################
+VERSION 0.0 (Preproduction)
 A tower defense game written in Ruby
 
 Basic Ideas:
 	Idea:
-		Tower Defense game inspired by dwarf fortress with autonomous 
+		Tower Defense game inspired by dwarf fortress with autonomous
+		 units that carry out jobs added by the user and efficiently 
+		 distribution of labor without micromanagement
 	Summary:
-		You start out with 7 dwarves on a flat plain in the middle of a field.  There is a wagon/store
-		 thing in the middle that you can buy items and units from.  You get gold from killing the
-		 incoming enemies.  Units increase in skill over time and foes become harder with time.
+		You start out with 7 dwarves on a flat plain in the middle of a 
+		 field.  There is a wagon/store thing in the middle that you 
+		 can buy items and units from.  You get gold from killing the
+		 incoming enemies.  Units increase in skill over time and foes
+		 become harder with time.
 
 	Store:
 		Buy Dwarves
 			expensive
 		Buy weapons/armor/ammo
 			starting dwarves should be unequiped and unskilled
-			upon buying weapons/armor/ammo at the store, unarmed dwarves will move from their
-			 location to the store, pickup the proper equipment, and return to their post or
-			 previous position
-			items should have tiered qualities and attributes based on price
+			upon buying weapons/armor/ammo at the store, unarmed
+			 dwarves will move from their location to the store, 
+			 pickup the proper equipment, and return to their post 
+			 or previous position
+			items should have tiered qualities and attributes based
+			 on price
 		Buy materials
-			dwarves should be able to build walls and other structures around the map, but not
-			 out of thin air.  Wood/Stone/Metals should be purchased at the store and hauled 
-			 from there to the building site.
+			dwarves should be able to build walls and other 
+			 structures around the map, but not out of thin air.
+			 Wood/Stone/Metals should be purchased at the store and 
+			hauled from there to the building site.
 		
 	Buildings
 		Walls
 			Materials matter only if we enable building destroyers
 		Towers
-			Build a tower that dwarves can run to the top of and fire crossbows from
-			Humanoid enemies should have to break the tower door down (not the buildings hp) and
-			 then fight the tower occupant in melee combat
+			Build a tower that dwarves can run to the top of and fire
+			 crossbows from
+			Humanoid enemies should have to break the tower door down
+			 (not the buildings hp) and then fight the tower occupant
+			 in melee combat
 		Ballista Towers
-			Certain towers could have larger siege weapons which would have to be operated by 
-			 dwarves.  Dwarves should be able to enter and leave at will
+			Certain towers could have larger siege weapons which would
+			 have to be operated by dwarves.  Dwarves should be able 
+			 to enter and leave at will
 		Hospital
-			Instead of dying for Dear Leader, we should be able to set a hp threshhold for a 
-			 dwarf retreating to the hospital for healing
-				This could be extended to dwarves needing sleep food and water and having
-				 a day night cycle to model attrition during extended combat periods
+			Instead of dying for Dear Leader, we should be able to set
+			 a hp threshhold for a dwarf retreating to the hospital 
+			 for healing
+				This could be extended to dwarves needing sleep
+				 food and water and having a day night cycle to
+				 model attrition of multiday combat
 			Could have dwarves recover wounded
 	Dwarves
 		Characteristics:
@@ -64,8 +77,8 @@ Basic Ideas:
 				Dexterity
 				Vitality
 				Flags:
-					various perks from a bank of possible attribute effecting 
-					 characteristics
+					various perks from a bank of possible
+					 attribute effecting characteristics
 			Combat Skills:
 				Weapon Skills:
 				Non-Weapon Attack Skills:
@@ -76,7 +89,8 @@ Basic Ideas:
 				Defense Skills
 					block/parry/dodge stuff
 			Abilities:(if implemented)
-				maybe some cooldown actions that dwarves can get, buff, attack, etc...
+				maybe some cooldown actions that dwarves can get,
+				 buff, attack, etc...
 			Building Skills:(if we want)
 		
 	Enemies
@@ -116,11 +130,12 @@ Basic Ideas:
 	                Picking up equipment
 	                targeting individual enemies
 	                recovering wounded(if implemented
-                These tasks should operate in a queue fashion with certain jobs having priority
-                 over others.  If this seems sketch then we can specify a specific builder dwarf or
-                 medic dwarf for not combat tasks
-		There should be a global list of jobs so the dwarves can autonomously carry out order once
-		 without micromanagment
+                These tasks should operate in a queue fashion with certain
+		 jobs having priority over others.  If this seems sketch
+		 then we can specify a specific builder dwarf or medic 
+		 dwarf for not combat tasks
+		There should be a global list of jobs so the dwarves can 
+		 autonomously carry out order once without micromanagment
 	
 	Combat:
 		Damage
