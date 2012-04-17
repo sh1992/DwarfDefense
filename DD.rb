@@ -13,7 +13,7 @@ end
 
 
 
-#classes to be written
+#stuff to be written
 	#Window
 		#gui object
 	#canvas
@@ -28,3 +28,14 @@ end
 	#building
 		#store
 		#tower
+		#unit path along canvas
+		#map array datastructure
+		#display sprites on canvas
+	#Tower
+		#range
+		#cooldown
+		
+	#enemy
+		#sprite
+	#unit path
+		
