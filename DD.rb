@@ -1,9 +1,15 @@
-def lol
-	print "fuck yeah\n"
-	end
+class Enemy
 
-lol()
+	def initialize(startPosition, sprite, hp)
+		end
+end
 
+class Tower
+	
+	def initialize(position,sprite,range,damage,cooldown)
+		end
+
+end
 
 
 
