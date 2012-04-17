@@ -16,7 +16,7 @@ class Tower
 
 end
 
-#class for game map
+#class for game mapgi
 class GameMap
 
 	def initialize(MapFile)
