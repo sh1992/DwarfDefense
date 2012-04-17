@@ -50,22 +50,16 @@ end
 		#thing we put in the window
 	#GameMap
 		#thing we put onto the canvas
-	#Dwarf
-	#Item
-		#building material
-		#Weapon
-		#Armor
-	#building
-		#store
-		#tower
-		#unit path along canvas
-		#map array datastructure
-		#display sprites on canvas
 	#Tower
+		#position
 		#range
 		#cooldown
+		#damage
+		#sprite
 		
 	#enemy
+		#position
 		#sprite
-	#unit path
+		#hp
+	#enemy path
 		
