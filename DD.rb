@@ -1,15 +1,30 @@
+
+#class for enemy units
 class Enemy
 
 	def initialize(startPosition, sprite, hp)
+		
 		end
 end
 
+#class for friendly towers
 class Tower
 	
 	def initialize(position,sprite,range,damage,cooldown)
+		
 		end
 
 end
+
+#class for game map
+class GameMap
+
+	def initialize(MapFile)
+		
+		end
+
+end
+
 
 
 
