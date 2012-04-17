@@ -1,3 +1,7 @@
+#dwarf defense
+#a tower defense game written in ruby
+#By Jack Rogers and Andrew Hearld
+
 
 #class for enemy units
 class Enemy
