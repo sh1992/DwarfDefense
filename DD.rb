@@ -56,16 +56,6 @@ map1ySize = 3
 ## possibly the map name at the top with starting goal, starting health, etc, stored in the map file
 
 
-def pprintboard(board,x,y)
-		print "\n\n\n"
-		x.times {|i| y.times {|j|
-			print " "
-			print board[i][j].inspect
-			print " "
-			}
-			print "\n" }	
-		print "\n\n\n"
-		end			
 		
 #main function
 def main(map=false,mapXsize=false,mapYsize=false)
@@ -95,33 +85,36 @@ def main(map=false,mapXsize=false,mapYsize=false)
 	spawn = "S"[0]
 	base = "@"[0]
 	nextLine = "\n"[0]
-	while i != mapXsize and i != mapYsize do
+	while (j != mapXsize -1)  or (i != mapYsize -1) do
+		
 		#eventually fill matrix with tile objects, put characters will suffice for now
-		if mapString[i+j*mapXsize] == wall
-			mapArray[i][j] = "#"
+		if j == mapXsize - 1
+			j = 0
 			i += 1
+			print "new line\n"
+		elsif mapString[j+i*mapXsize] == wall
+			mapArray[i][j] = wall.chr
+			j += 1
 			print "wall placed\n"
+			print "\n", mapArray.inspect
+			print "\n"
 		elsif mapString[i+j*mapXsize] == spawn
-			mapArray[i][j] = "S"
-			i += 1
+			mapArray[i][j] = spawn.chr
+			j += 1
 			print "spawn placed\n"
 		elsif mapString[i+j*mapXsize] == base
-			mapArray[i][j] = "@"
-			i += 1
-			print "base placed\n"
-		elsif mapString[i+j*mapXsize] == nextLine
-			i = 0
+			mapArray[i][j] = base.chr
 			j += 1
-			print "new line\n"
+			print "base placed\n"
+		
 		else
-			print i,"\t",j,"\n"
+			print i,"th row\t",j,"th column\n"
 			print mapString[i]
 			print "Invalid Character in map file\n"
-		
 		end
 		
 	end
-	pprintboard(mapArray,mapXsize,mapYsize)
+	print mapArray.inspect
 
 
 end
