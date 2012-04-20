@@ -44,8 +44,28 @@ class GameMap
 
 end
 
+##example map
+map1 = "############\n		
+		S==========@\n
+		############\n"		## rows of #'s treated as unwalkable space upon which towers can be placed
+							## path of walkable ='s with a Spawn tile S and a destination @
+							## because we will want to load these from file, expect the file to be read in with new lines at the end
+							## possibly the map name at the top with starting goal, starting health, etc, stored in the map file
+							
+		
+
+def main(map=false)
+	if map == false:
+		print "Enter Map Name"
+		fname = gets
+		fh = File.open(fname)
+		mapString = fh.gets
+		puts mapString
+		#now intialize an array and fill it using the string
+		
 
 
+end
 
 #stuff to be written
 	#Window
