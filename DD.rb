@@ -54,7 +54,18 @@ map1ySize = 3
 ## path of walkable ='s with a Spawn tile S and a destination @
 ## because we will want to load these from file, expect the file to be read in with new lines at the end
 ## possibly the map name at the top with starting goal, starting health, etc, stored in the map file
-							
+
+
+def pprintboard(board,x,y)
+		print "\n\n\n"
+		x.times {|i| y.times {|j|
+			print " "
+			print board[i][j].inspect
+			print " "
+			}
+			print "\n" }	
+		print "\n\n\n"
+		end			
 		
 #main function
 def main(map=false,mapXsize=false,mapYsize=false)
@@ -76,31 +87,41 @@ def main(map=false,mapXsize=false,mapYsize=false)
 	end
 	#now intialize an array and fill it using the string
 	mapArray = Array.new(mapYsize)
-	mapArray.size.times {|lolcat| mapArray[lolcat] = Array.new(mapXsize)}
+	mapArray.size.times {|lolcat| mapArray[lolcat] = Array.new(mapXsize,"")}
 	#now load string into array
 	i = 0
 	j = 0
+	wall = "#"[0]
+	spawn = "S"[0]
+	base = "@"[0]
+	nextLine = "\n"[0]
 	while i != mapXsize and i != mapYsize do
 		#eventually fill matrix with tile objects, put characters will suffice for now
-		if mapString[i] == "#"
+		if mapString[i+j*mapXsize] == wall
 			mapArray[i][j] = "#"
 			i += 1
-		elsif mapString[i] == "S"
+			print "wall placed\n"
+		elsif mapString[i+j*mapXsize] == spawn
 			mapArray[i][j] = "S"
 			i += 1
-		elsif mapString[i][j] == "@"
+			print "spawn placed\n"
+		elsif mapString[i+j*mapXsize] == base
 			mapArray[i][j] = "@"
 			i += 1
-		elsif mapString[i][j] == "\n"
+			print "base placed\n"
+		elsif mapString[i+j*mapXsize] == nextLine
 			i = 0
 			j += 1
+			print "new line\n"
 		else
-			print "Invalid Character in map file"
+			print i,"\t",j,"\n"
+			print mapString[i]
+			print "Invalid Character in map file\n"
 		
 		end
 		
 	end
-	print mapArray.inspect
+	pprintboard(mapArray,mapXsize,mapYsize)
 
 
 end
