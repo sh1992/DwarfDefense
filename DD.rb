@@ -45,28 +45,62 @@ class GameMap
 end
 
 ##example map
-map1 = "############\n		
-		S==========@\n
-		############\n"		## rows of #'s treated as unwalkable space upon which towers can be placed
-							## path of walkable ='s with a Spawn tile S and a destination @
-							## because we will want to load these from file, expect the file to be read in with new lines at the end
-							## possibly the map name at the top with starting goal, starting health, etc, stored in the map file
+map1 = "############\nS==========@\n############\n"
+#need to write function that determines dimensions of a mapString for initializing the array
+map1xSize = 12
+map1ySize = 3
+
+## rows of #'s treated as unwalkable space upon which towers can be placed
+## path of walkable ='s with a Spawn tile S and a destination @
+## because we will want to load these from file, expect the file to be read in with new lines at the end
+## possibly the map name at the top with starting goal, starting health, etc, stored in the map file
 							
 		
-
-def main(map=false)
+#main function
+def main(map=false,mapXsize=false,mapYsize=false)
+	#if no map given as argument
 	if map == false:
+		#prompt user for name of map
 		print "Enter Map Name"
 		fname = gets
 		fh = File.open(fname)
 		mapString = fh.gets
 		puts mapString
-		#now intialize an array and fill it using the string
-	else
-		mapString = map
-		puts mapString
-	end
+		#get map dimensions
 		
+		
+	else
+		
+		mapString = map
+		puts mapString.inspect
+	end
+	#now intialize an array and fill it using the string
+	mapArray = Array.new(mapYsize)
+	mapArray.size.times {|lolcat| mapArray[lolcat] = Array.new(mapXsize)}
+	#now load string into array
+	i = 0
+	j = 0
+	while i != mapXsize and i != mapYsize do
+		#eventually fill matrix with tile objects, put characters will suffice for now
+		if mapString[i] == "#"
+			mapArray[i][j] = "#"
+			i += 1
+		elsif mapString[i] == "S"
+			mapArray[i][j] = "S"
+			i += 1
+		elsif mapString[i][j] == "@"
+			mapArray[i][j] = "@"
+			i += 1
+		elsif mapString[i][j] == "\n"
+			i = 0
+			j += 1
+		else
+			print "Invalid Character in map file"
+		
+		end
+		
+	end
+	print mapArray.inspect
 
 
 end
@@ -93,4 +127,4 @@ end
 
 
 #Run main Function
-main(map1)	
+main(map1,map1xSize,map1ySize)	
