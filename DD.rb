@@ -38,7 +38,7 @@ end
 #class for game mapping
 class GameMap
 
-	def initialize(MapFile)
+	def initialize(mapFile)
 		
 		end
 
@@ -62,6 +62,10 @@ def main(map=false)
 		mapString = fh.gets
 		puts mapString
 		#now intialize an array and fill it using the string
+	else
+		mapString = map
+		puts mapString
+	end
 		
 
 
@@ -86,4 +90,7 @@ end
 		#sprite
 		#hp
 	#enemy path
-		
+
+
+#Run main Function
+main(map1)	
