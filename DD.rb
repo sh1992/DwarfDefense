@@ -43,7 +43,7 @@ end
 
 #class for game mapping
 class GameMap
-##example map with string
+##example map
 map1String = "############\nS==========@\n############\n"
 map1Array = [['#','#','#','#','#','#','#','#','#','#'],
 			 ['S','=','=','=','=','=','=','=','=','@'],
