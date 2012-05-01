@@ -43,14 +43,20 @@ end
 
 #class for game mapping
 class GameMap
-##example map
-map1 = "############\nS==========@\n############\n"
-#map 1 looks like
+##example map with string
+map1String = "############\nS==========@\n############\n"
+map1Array = [['#','#','#','#','#','#','#','#','#','#'],
+			 ['S','=','=','=','=','=','=','=','=','@'],
+			 ['#','#','#','#','#','#','#','#','#','#']]
 
+
+#map 1 looks like
 
 ##		############
 ##		S==========@
 ##		############
+
+
 
 #units spawn at S
 #move accross the ='s which are the path
