@@ -57,7 +57,7 @@ map1 = "############\nS==========@\n############\n"
 #take away hp upon reaching @ base
 #towers can be built on the #'s
 
-	def initialize(mapFile)
+	def initialize()
 		
 		end
 

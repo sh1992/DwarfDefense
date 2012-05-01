@@ -35,24 +35,24 @@ Outline of Gameplay
 Classes
 	GameMap
 		Attributes
+			rows
+			columns
 			mapArray = mxn array
 				contains tiles
 					@ = Player's Base
 					S = Enemy Spawn
 					= = Path from enemy spawn to players base
-					e = enemy
 					# = empty tile on which towers can be built
 					T = Tower
 		Methods
-			Spawn enemy
-			Spawn tower
-			Move enemy
-			Remove enemy
+			Spawn Tower
+			Remove Tower
 			
 		
 		
 		
-	Path  	#better way to do this? handle in gamemap?
+	Path  	
+		#better way to do this? handle in gamemap?
 		Attributes
 			Ordered list of tiles in path
 			Distance from spawn to player's base
@@ -79,10 +79,29 @@ Classes
 		Attributes
 		Methods
 
-	Ui
+	MapCanvas
+		Attributes
+			heightPixels	= 500
+			widthPixels		= 500	#500x500 acceptable canvas size?
+		Methods
+		
+			Add Enemy
+			Remove Enemy
+			Update enemy position
+			Add Tower
+			Remove Tower
+			
+			
+		
+	Sidebar
 		Attributes
 		Methods
 		
+		
 	Player
 		Attributes
+			name
+			score history
 		Methods
+			get name
+			show score history
