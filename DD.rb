@@ -35,6 +35,12 @@ class Tower
 
 end
 
+#do we want a tile class then have child classes for each tile type?
+class Tile
+
+
+end
+
 #class for game mapping
 class GameMap
 
@@ -44,8 +50,38 @@ class GameMap
 
 end
 
+
+class Wave
+
+
+end
+
+class UI
+
+
+end
+
+class Player
+
+
+end
+
 ##example map
 map1 = "############\nS==========@\n############\n"
+#map 1 looks like
+
+
+##		############
+##		S==========@
+##		############
+
+#units spawn at S
+#move accross the ='s which are the path
+#take away hp upon reaching @ base
+#towers can be built on the #'s
+
+
+
 #need to write function that determines dimensions of a mapString for initializing the array
 map1xSize = 12
 map1ySize = 3

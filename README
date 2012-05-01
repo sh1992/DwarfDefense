@@ -8,3 +8,67 @@ New College of Florida
 VERSION 0.0 (Preproduction)
 A tower defense game written in Ruby
 
+
+Outline of Gameplay
+	Start Game
+		Prompt User for name
+		User picks level
+		User picks difficulty
+		User chooses to start playing
+		Canvas Loads map
+		Sidebar comes up
+		Player given starting sum of money
+		User places towers
+		User starts wave 1
+		wave 1 units spawn and approach base
+		towers kill enemies
+		when enemy dies, money is recieved based on enemy hp and wave
+		wave 2 comes after some time limit based on when wave 1 ends
+		continues until
+			A. surviaval
+					base dies
+			B. wave limit
+					wave limit reached
+		Present user with endgame statistics
+		prompt to play again, select new level, or exit game
+		
+Classes
+	GameMap
+		Attributes
+			mapArray = mxn array
+				contains tiles
+					@ = Player's Base
+					S = Enemy Spawn
+					= = Path from enemy spawn to players base
+					e = enemy
+					# = empty tile on which towers can be built
+					T = Tower
+		Methods
+	
+	
+	Enemy
+		Attributes
+			HP
+			Sprite
+			type 	# if implemented
+		Methods
+		
+		
+	Wave
+		Attributes
+			Wave number
+		Methods
+			pick number of enemies
+			set health of enemies
+			
+	Tower
+		Attributes
+		Methods
+
+	Ui
+		Attributes
+		Methods
+		
+	Player
+		Attributes
+		Methods
