@@ -11,12 +11,12 @@ A tower defense game written in Ruby
 
 Outline of Gameplay
 	Start Game
-		Prompt User for name
-		User picks level
-		User picks difficulty
-		User chooses to start playing
-		Canvas Loads map
-		Sidebar comes up
+		Prompt User for name						# UI
+		User picks level							# UI
+		User picks difficulty						# UI
+		User chooses to start playing				# UI
+		Canvas Loads map							# UI
+		Sidebar comes up							# UI
 		Player given starting sum of money
 		User places towers
 		User starts wave 1
@@ -44,6 +44,20 @@ Classes
 					# = empty tile on which towers can be built
 					T = Tower
 		Methods
+			Spawn enemy
+			Spawn tower
+			Move enemy
+			Remove enemy
+			
+		
+		
+		
+	Path  	#better way to do this? handle in gamemap?
+		Attributes
+			Ordered list of tiles in path
+			Distance from spawn to player's base
+		Methods
+			Get path from mapfile
 	
 	
 	Enemy
