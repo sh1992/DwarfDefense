@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>main (DD.rb)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File DD.rb, line 97</span>
+<span class="ruby-keyword kw">def</span> <span class="ruby-identifier">main</span>(<span class="ruby-identifier">map</span>=<span class="ruby-keyword kw">false</span>,<span class="ruby-identifier">mapXsize</span>=<span class="ruby-keyword kw">false</span>,<span class="ruby-identifier">mapYsize</span>=<span class="ruby-keyword kw">false</span>)
+        <span class="ruby-comment cmt">#if no map given as argument</span>
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">map</span> <span class="ruby-operator">==</span> <span class="ruby-keyword kw">false</span><span class="ruby-operator">:</span>
+                <span class="ruby-comment cmt">#prompt user for name of map</span>
+                <span class="ruby-identifier">print</span> <span class="ruby-value str">&quot;Enter Map Name&quot;</span>
+                <span class="ruby-identifier">fname</span> = <span class="ruby-identifier">gets</span>
+                <span class="ruby-identifier">fh</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">fname</span>)
+                <span class="ruby-identifier">mapString</span> = <span class="ruby-identifier">fh</span>.<span class="ruby-identifier">gets</span>
+                <span class="ruby-identifier">puts</span> <span class="ruby-identifier">mapString</span>
+                <span class="ruby-comment cmt">#get map dimensions</span>
+                
+                
+        <span class="ruby-keyword kw">else</span>
+                
+                <span class="ruby-identifier">mapString</span> = <span class="ruby-identifier">map</span>
+                <span class="ruby-identifier">puts</span> <span class="ruby-identifier">mapString</span>.<span class="ruby-identifier">inspect</span>
+        <span class="ruby-keyword kw">end</span>
+        <span class="ruby-comment cmt">#now intialize an array and fill it using the string</span>
+        <span class="ruby-identifier">mapArray</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">mapYsize</span>)
+        <span class="ruby-identifier">mapArray</span>.<span class="ruby-identifier">size</span>.<span class="ruby-identifier">times</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">lolcat</span><span class="ruby-operator">|</span> <span class="ruby-identifier">mapArray</span>[<span class="ruby-identifier">lolcat</span>] = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">mapXsize</span>,<span class="ruby-value str">&quot;&quot;</span>)}
+        <span class="ruby-comment cmt">#now load string into array</span>
+        <span class="ruby-identifier">i</span> = <span class="ruby-value">0</span>
+        <span class="ruby-identifier">j</span> = <span class="ruby-value">0</span>
+        <span class="ruby-identifier">wall</span> = <span class="ruby-value str">&quot;#&quot;</span>[<span class="ruby-value">0</span>]
+        <span class="ruby-identifier">spawn</span> = <span class="ruby-value str">&quot;S&quot;</span>[<span class="ruby-value">0</span>]
+        <span class="ruby-identifier">base</span> = <span class="ruby-value str">&quot;@&quot;</span>[<span class="ruby-value">0</span>]
+        <span class="ruby-identifier">nextLine</span> = <span class="ruby-value str">&quot;\n&quot;</span>[<span class="ruby-value">0</span>]
+        <span class="ruby-keyword kw">while</span> (<span class="ruby-identifier">j</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">mapXsize</span> <span class="ruby-value">-1</span>)  <span class="ruby-keyword kw">or</span> (<span class="ruby-identifier">i</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">mapYsize</span> <span class="ruby-value">-1</span>) <span class="ruby-keyword kw">do</span>
+                
+                <span class="ruby-comment cmt">#eventually fill matrix with tile objects, put characters will suffice for now</span>
+                <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">j</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">mapXsize</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>
+                        <span class="ruby-identifier">j</span> = <span class="ruby-value">0</span>
+                        <span class="ruby-identifier">i</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+                        <span class="ruby-identifier">print</span> <span class="ruby-value str">&quot;new line\n&quot;</span>
+                <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">mapString</span>[<span class="ruby-identifier">j</span><span class="ruby-operator">+</span><span class="ruby-identifier">i</span><span class="ruby-operator">*</span><span class="ruby-identifier">mapXsize</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">wall</span>
+                        <span class="ruby-identifier">mapArray</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">j</span>] = <span class="ruby-identifier">wall</span>.<span class="ruby-identifier">chr</span>
+                        <span class="ruby-identifier">j</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+                        <span class="ruby-identifier">print</span> <span class="ruby-value str">&quot;wall placed\n&quot;</span>
+                        <span class="ruby-identifier">print</span> <span class="ruby-value str">&quot;\n&quot;</span>, <span class="ruby-identifier">mapArray</span>.<span class="ruby-identifier">inspect</span>
+                        <span class="ruby-identifier">print</span> <span class="ruby-value str">&quot;\n&quot;</span>
+                <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">mapString</span>[<span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-identifier">j</span><span class="ruby-operator">*</span><span class="ruby-identifier">mapXsize</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">spawn</span>
+                        <span class="ruby-identifier">mapArray</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">j</span>] = <span class="ruby-identifier">spawn</span>.<span class="ruby-identifier">chr</span>
+                        <span class="ruby-identifier">j</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+                        <span class="ruby-identifier">print</span> <span class="ruby-value str">&quot;spawn placed\n&quot;</span>
+                <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">mapString</span>[<span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-identifier">j</span><span class="ruby-operator">*</span><span class="ruby-identifier">mapXsize</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">base</span>
+                        <span class="ruby-identifier">mapArray</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">j</span>] = <span class="ruby-identifier">base</span>.<span class="ruby-identifier">chr</span>
+                        <span class="ruby-identifier">j</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+                        <span class="ruby-identifier">print</span> <span class="ruby-value str">&quot;base placed\n&quot;</span>
+                
+                <span class="ruby-keyword kw">else</span>
+                        <span class="ruby-identifier">print</span> <span class="ruby-identifier">i</span>,<span class="ruby-value str">&quot;th row\t&quot;</span>,<span class="ruby-identifier">j</span>,<span class="ruby-value str">&quot;th column\n&quot;</span>
+                        <span class="ruby-identifier">print</span> <span class="ruby-identifier">mapString</span>[<span class="ruby-identifier">i</span>]
+                        <span class="ruby-identifier">print</span> <span class="ruby-value str">&quot;Invalid Character in map file\n&quot;</span>
+                <span class="ruby-keyword kw">end</span>
+                
+        <span class="ruby-keyword kw">end</span>
+        <span class="ruby-identifier">print</span> <span class="ruby-identifier">mapArray</span>.<span class="ruby-identifier">inspect</span>
+
+
+<span class="ruby-keyword kw">end</span>
+
+<span class="ruby-comment cmt">#stuff to be written</span>
+        <span class="ruby-comment cmt">#Window</span>
+                <span class="ruby-comment cmt">#gui object</span>
+        <span class="ruby-comment cmt">#canvas</span>
+                <span class="ruby-comment cmt">#thing we put in the window</span>
+        <span class="ruby-comment cmt">#GameMap</span>
+                <span class="ruby-comment cmt">#thing we put onto the canvas</span>
+        <span class="ruby-comment cmt">#Tower</span>
+                <span class="ruby-comment cmt">#position</span>
+                <span class="ruby-comment cmt">#range</span>
+                <span class="ruby-comment cmt">#cooldown</span>
+                <span class="ruby-comment cmt">#damage</span>
+                <span class="ruby-comment cmt">#sprite</span>
+                
+        <span class="ruby-comment cmt">#enemy</span>
+                <span class="ruby-comment cmt">#position</span>
+                <span class="ruby-comment cmt">#sprite</span>
+                <span class="ruby-comment cmt">#hp</span>
+        <span class="ruby-comment cmt">#enemy path</span>
+
+
+<span class="ruby-comment cmt">#Run main Function</span>
+<span class="ruby-identifier">main</span>(<span class="ruby-identifier">map1</span>,<span class="ruby-identifier">map1xSize</span>,<span class="ruby-identifier">map1ySize</span>)  
+</pre>
+</body>
+</html>

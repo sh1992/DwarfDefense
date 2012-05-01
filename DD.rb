@@ -43,6 +43,19 @@ end
 
 #class for game mapping
 class GameMap
+##example map
+map1 = "############\nS==========@\n############\n"
+#map 1 looks like
+
+
+##		############
+##		S==========@
+##		############
+
+#units spawn at S
+#move accross the ='s which are the path
+#take away hp upon reaching @ base
+#towers can be built on the #'s
 
 	def initialize(mapFile)
 		
@@ -66,32 +79,11 @@ class Player
 
 end
 
-##example map
-map1 = "############\nS==========@\n############\n"
-#map 1 looks like
-
-
-##		############
-##		S==========@
-##		############
-
-#units spawn at S
-#move accross the ='s which are the path
-#take away hp upon reaching @ base
-#towers can be built on the #'s
-
 
 
 #need to write function that determines dimensions of a mapString for initializing the array
 map1xSize = 12
 map1ySize = 3
-
-## rows of #'s treated as unwalkable space upon which towers can be placed
-## path of walkable ='s with a Spawn tile S and a destination @
-## because we will want to load these from file, expect the file to be read in with new lines at the end
-## possibly the map name at the top with starting goal, starting health, etc, stored in the map file
-
-
 		
 #main function
 def main(map=false,mapXsize=false,mapYsize=false)
@@ -154,26 +146,6 @@ def main(map=false,mapXsize=false,mapYsize=false)
 
 
 end
-
-#stuff to be written
-	#Window
-		#gui object
-	#canvas
-		#thing we put in the window
-	#GameMap
-		#thing we put onto the canvas
-	#Tower
-		#position
-		#range
-		#cooldown
-		#damage
-		#sprite
-		
-	#enemy
-		#position
-		#sprite
-		#hp
-	#enemy path
 
 
 #Run main Function
