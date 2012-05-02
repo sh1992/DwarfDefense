@@ -5,7 +5,7 @@ require "rubygame"
  
 include Rubygame
  
-@screen = Screen.open [ 640, 480]
+@screen = Screen.open [ 500, 500]
  
  
 # Defines a class for an example object in the game that will have a
